@@ -10,14 +10,13 @@ OptionList = [
 
 window = tk.Tk()
 
-window.title('Pick your book category')
-window.geometry('700x550')
+window.title('Best Seller')
+window.geometry('800x450')
 
-canvas=tk.Canvas(window, width=700, height=550)
-image=ImageTk.PhotoImage(Image.open('C:/Users/blake/OneDrive/Pictures/lake.png'))
-
-canvas.create_image(350, 275, image=image)
-canvas.place(x=0, y=0)
+canvas=tk.Canvas(window, width=800, height=450)
+image=ImageTk.PhotoImage(Image.open('C:/Users/blake/OneDrive/desktop/Book_Scraper/lake.png'))
+backgroung_label= tk.Label(window, image=image)
+backgroung_label.place(relwidth=1, relheight=1)
 
 
 mainframe = tk.Frame(window, bg= "blue")
@@ -27,25 +26,18 @@ mainframe.rowconfigure(0, weight = 1)
 mainframe.pack(padx=100, pady=100)
 
 variable = tk.StringVar(window)
-variable.set('Book Categories')
+variable.set('Choose Book Category')
 
-
-label = tk.Label(text="Choose category:", width=20, font=('Helvetica', 12), fg='black', bg='#4d6182')
-label.pack(side="top")
 
 opt = tk.OptionMenu(window, variable, *OptionList)
-opt.config(width=60, font=('Helvetica', 12), cursor= "hand2", bg='white')
+opt.config(width=60, font=('Helvetica', 12), cursor= "hand2", bg='#81828a')
 opt.pack(side="top")
 
-result = tk.Label(width=90, font=('Helvetica', 12), fg='black', bg='#4d6182')
+result = tk.Label(width=85, height=4, font=('Helvetica', 11), fg='#bcc2c2', bg='#4d6182')
 result.pack(side='top')
 
 
-# result2 = tk.Label(width=90, font=('Helvetica', 12), fg='Blue')
-# result2.pack(side='top')
-# result2.bind(("<Button-1>", lambda e: callback2()))
-
-def callback2():
+def url():
 	if variable.get() == '                            History                        ':
 		webbrowser.open_new(wood_scraper.hurl())
 	elif variable.get() == '                            Thrillers                      ':
@@ -53,13 +45,13 @@ def callback2():
 	else:
 		webbrowser.open_new(wood_scraper.scurl())
 
-book_link = tk.Button(window, text='Book Link', command=callback2, cursor="hand2")
+book_link = tk.Button(window, text='Book Link', command=url, cursor="hand2", fg='#ffffff', bg='#81828a')
 book_link.pack(side='top')
-book_link.bind(("<Button-1>", lambda e: callback2()))
+# book_link.bind(("<Button-1>", lambda e: url()))
 
 
-quit = tk.Button(window, text='Quit Program', command= window.quit, width=20, cursor="hand2")
-quit.pack(padx=90, pady=70)
+quit = tk.Button(window, text='Quit Program', command= window.quit, width=20, cursor="hand2", bg='#81828a')
+quit.place(relx=.41, rely=.9)
 
 
 
