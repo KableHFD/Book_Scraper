@@ -47,7 +47,7 @@ def url():
 
 book_link = tk.Button(window, text='Book Link', command=url, cursor="hand2", fg='#ffffff', bg='#81828a')
 book_link.pack(side='top')
-# book_link.bind(("<Button-1>", lambda e: url()))
+
 
 
 quit = tk.Button(window, text='Quit Program', command= window.quit, width=20, cursor="hand2", bg='#81828a')

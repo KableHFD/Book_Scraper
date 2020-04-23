@@ -21,7 +21,7 @@ def SciFi():
 	author = author_on_site.getText()
 	title = author_on_site.getText()
 	book_name = book.getText()
-	return f'The Number 1 best selling SciFi book is {book_name}{title}'
+	return f'The Best selling SciFi book is {book_name}{title}'
 
 #this function returns url for SciFi
 def scurl():
@@ -50,9 +50,6 @@ def Thrillers():
 
 	bsr = BeautifulSoup(response.text, 'html.parser')
 
-	#this finds the the number at which the book sits on best seller list
-	# count = bsr.select('.count')
-
 	#this is the class that contains author and book info, and href, pulls only the first book at index 0
 	book = bsr.select('.product-info-title')[0]
 
@@ -62,7 +59,7 @@ def Thrillers():
 	author = author_on_site.getText()
 	title = author_on_site.getText()
 	book_name = book.getText()
-	return f'The Number 1 best selling Thriller book is {book_name}{title}'
+	return f'The Best selling Thriller book is {book_name}{title}'
 
 
 #this function returns url for thriller
@@ -100,7 +97,7 @@ def History():
 	author = author_on_site.getText()
 	title = author_on_site.getText()
 	book_name = book.getText()
-	return f'The Number 1 best selling History book is {book_name}{title}'
+	return f'The Best selling History book is {book_name}{title}'
 
 #this function returns the url for History
 def hurl():
@@ -119,4 +116,3 @@ def hurl():
 	hurl = f'https://www.barnesandnoble.com/{burl}'
 
 	return hurl
-
